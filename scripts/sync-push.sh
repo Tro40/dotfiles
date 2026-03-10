@@ -18,6 +18,9 @@ VSCODE_KEYS="$HOME/Library/Application Support/Code/User/keybindings.json"
 [ -f "$VSCODE_SETTINGS" ] && cp "$VSCODE_SETTINGS" "$DOTFILES_DIR/vscode/settings.json"
 [ -f "$VSCODE_KEYS" ] && cp "$VSCODE_KEYS" "$DOTFILES_DIR/vscode/keybindings.json"
 
+# Sincronizar repo de routers-mikrotik antes del push de dotfiles
+bash "$HOME/Documents/vscode/routers-mikrotik/scripts/sync-repo.sh" 2>/dev/null
+
 cd "$DOTFILES_DIR" || exit 1
 
 git add -A

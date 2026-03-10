@@ -27,3 +27,6 @@ VSCODE_USER="$HOME/Library/Application Support/Code/User"
 touch "$FLAG"
 # Limpiar flags de días anteriores
 find "$DOTFILES_DIR" -name ".pulled_*" ! -name ".pulled_$(date '+%Y%m%d')" -delete
+
+# Sincronizar repo de routers-mikrotik
+bash "$HOME/Documents/vscode/routers-mikrotik/scripts/sync-repo.sh" 2>/dev/null
