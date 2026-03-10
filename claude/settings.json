@@ -1,4 +1,28 @@
 {
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/sync-push.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/sync-pull.sh"
+          }
+        ]
+      }
+    ]
+  },
   "mcpServers": {
     "filesystem": {
       "command": "/opt/homebrew/bin/npx",
@@ -30,29 +54,5 @@
       },
       "description": "GitOps para versionar configuraciones de routers MikroTik"
     }
-  },
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/dotfiles/scripts/sync-push.sh"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/dotfiles/scripts/sync-pull.sh"
-          }
-        ]
-      }
-    ]
   }
 }
