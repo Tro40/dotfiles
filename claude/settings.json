@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/eduardo/Documents/routers-mikrotik"
+      ],
+      "description": "Gestión de ficheros del proyecto ISP: backups de configs, scripts, inventario"
+    },
+    "sqlite": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sqlite",
+        "--db-path",
+        "/Users/eduardo/Documents/routers-mikrotik/network_inventory.db"
+      ],
+      "description": "Base de datos de inventario: dispositivos, IPs, VLANs, cambios"
+    },
+    "github": {
+      "command": "/opt/homebrew/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "PENDIENTE_CONFIGURAR"
+      },
+      "description": "GitOps para versionar configuraciones de routers MikroTik"
+    }
+  }
+}
