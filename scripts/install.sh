@@ -30,6 +30,17 @@ mkdir -p "$VSCODE_USER"
 echo "==> Haciendo ejecutables los scripts..."
 chmod +x "$DOTFILES_DIR/scripts/"*.sh
 
+echo "==> Clonando routers-mikrotik..."
+ROUTERS_DIR="$HOME/Documents/vscode/routers-mikrotik"
+mkdir -p "$HOME/Documents/vscode"
+if [ ! -d "$ROUTERS_DIR" ]; then
+  git clone https://github.com/Tro40/routers-mikrotik.git "$ROUTERS_DIR"
+else
+  echo "    Ya existe $ROUTERS_DIR, haciendo pull..."
+  cd "$ROUTERS_DIR" && git pull origin main
+fi
+chmod +x "$ROUTERS_DIR/scripts/sync-repo.sh"
+
 echo ""
 echo "✓ Instalación completada."
 echo "  Recuerda hacer: gh auth login"
