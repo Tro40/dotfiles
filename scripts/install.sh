@@ -41,6 +41,15 @@ else
 fi
 chmod +x "$ROUTERS_DIR/scripts/sync-repo.sh"
 
+echo "==> Inyectando token de GitHub en ~/.claude/settings.json..."
+if command -v gh &>/dev/null && gh auth status &>/dev/null; then
+  GH_TOKEN=$(gh auth token)
+  sed -i '' "s/\"GITHUB_PERSONAL_ACCESS_TOKEN\": \".*\"/\"GITHUB_PERSONAL_ACCESS_TOKEN\": \"$GH_TOKEN\"/" \
+    "$HOME/.claude/settings.json"
+  echo "    Token inyectado correctamente."
+else
+  echo "    gh no autenticado — ejecuta 'gh auth login' y vuelve a correr este script."
+fi
+
 echo ""
 echo "✓ Instalación completada."
-echo "  Recuerda hacer: gh auth login"
