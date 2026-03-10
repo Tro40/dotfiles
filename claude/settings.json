@@ -30,5 +30,29 @@
       },
       "description": "GitOps para versionar configuraciones de routers MikroTik"
     }
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/sync-push.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/scripts/sync-pull.sh"
+          }
+        ]
+      }
+    ]
   }
 }
